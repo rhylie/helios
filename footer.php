@@ -11,8 +11,6 @@
 
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'helios' ) ); ?>">
@@ -28,7 +26,8 @@
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+
+</div><!-- #page-wrapper -->
 
 <?php wp_footer(); ?>
 
