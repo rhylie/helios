@@ -122,9 +122,14 @@ add_action( 'widgets_init', 'helios_widgets_init' );
 function helios_scripts() {
 	wp_enqueue_style( 'helios-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'helios-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-jquery-script-main', get_template_directory_uri() . '/js/jquery.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-jquery-dropotron', get_template_directory_uri() . '/js/jquery.dropotron.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-scrolly-min', get_template_directory_uri() . '/js/jquery.scrolly.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-on-visible-script', get_template_directory_uri() . '/js/jquery.onvisible.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-skel-script', get_template_directory_uri() . '/js/skel.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-util-script', get_template_directory_uri() . '/js/util.js', array(), '20151215', true );
+	wp_enqueue_script( 'helios-main-scripts', get_template_directory_uri() . '/js/main.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'helios-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
