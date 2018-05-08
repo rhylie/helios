@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area archive-template">
+	<div id="primary" class="content-area taxonomy-topics-template">
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
