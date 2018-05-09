@@ -210,9 +210,7 @@ remove_filter( 'term_description', 'wp_kses_data' );
 
 // Display custom amount of posts 
 function themeprefix_latest_posts() {
-
 	global $post;
-
 	$latest_posts = new WP_Query(array(
 		'posts_per_page' => 3, // Displays the latest 10 posts, change 10 to what you require
 		'post_type' => 'post', // Pulls posts from 'post' post type only
