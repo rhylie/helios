@@ -212,8 +212,8 @@ remove_filter( 'term_description', 'wp_kses_data' );
 function themeprefix_latest_posts() {
 	global $post;
 	$latest_posts = new WP_Query(array(
-		'posts_per_page' => 3, // Displays the latest 10 posts, change 10 to what you require
-		'post_type' => 'post', // Pulls posts from 'post' post type only
+		'posts_per_page'      => 3, // Displays the latest 10 posts, change 10 to what you require
+		'post_type'           => 'post', // Pulls posts from 'post' post type only
 		'ignore_sticky_posts' => true, // Ignores the sticky posts
 	));
 
@@ -237,8 +237,10 @@ function helios_display_cat_posts() {
 	//$catquery = new WP_Query( 'cat=32&posts_per_page=3' );
 	$catquery = new WP_Query( 
 		array( 
-			'cat'            => 32, 
-			'posts_per_page' => 3
+			'cat'                 => 32,
+			'post_type'           => 'post',
+			'ignore_sticky_posts' => true,
+			'posts_per_page'      => 3,
 		)
 	);
 
@@ -246,11 +248,15 @@ function helios_display_cat_posts() {
 		// The loop
 		while ( $catquery->have_posts() ) :
 			$catquery->the_post();
+
 			?>
 			<?php get_template_part( 'template-parts/content-home-featured' ); ?> <!-- Render this custom content page from child theme -->
 		<?php
 		endwhile;
-		// Reset Post Data
-		wp_reset_postdata();
-	} 
+	}
+	else {
+		// Nothing found..
+	}
+	// Reset Post Data
+	wp_reset_postdata();
 }
