@@ -205,3 +205,54 @@ remove_filter( 'pre_term_description', 'wp_filter_kses' );
 remove_filter( 'pre_link_description', 'wp_filter_kses' );
 remove_filter( 'pre_link_notes', 'wp_filter_kses' );
 remove_filter( 'term_description', 'wp_kses_data' );
+
+
+
+// Display custom amount of posts 
+function themeprefix_latest_posts() {
+
+	global $post;
+
+	$latest_posts = new WP_Query(array(
+		'posts_per_page' => 3, // Displays the latest 10 posts, change 10 to what you require
+		'post_type' => 'post', // Pulls posts from 'post' post type only
+		'ignore_sticky_posts' => true, // Ignores the sticky posts
+	));
+
+	while ($latest_posts->have_posts()) :
+		$latest_posts->the_post();
+		?>
+
+		<ul class="latest_custom_posts_list">
+			<li><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
+		</ul>
+
+		<?php
+	endwhile;
+	// Reset Post Data
+	wp_reset_postdata();
+}
+
+
+// Display posts from a specific category ID
+function helios_display_cat_posts() {
+	//$catquery = new WP_Query( 'cat=32&posts_per_page=3' );
+	$catquery = new WP_Query( 
+		array( 
+			'cat'            => 32, 
+			'posts_per_page' => 3
+		)
+	);
+
+	if ( $catquery->have_posts() ) {
+		// The loop
+		while ( $catquery->have_posts() ) :
+			$catquery->the_post();
+			?>
+			<?php get_template_part( 'template-parts/content-home-featured' ); ?> <!-- Render this custom content page from child theme -->
+		<?php
+		endwhile;
+		// Reset Post Data
+		wp_reset_postdata();
+	} 
+}
