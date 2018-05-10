@@ -108,13 +108,54 @@ function helios_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'helios' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'helios' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_widget' => '<div id="%1$s" class="6u widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
 	) );
 }
 add_action( 'widgets_init', 'helios_widgets_init' );
+
+
+/* 3 Column footer */
+
+/* REGISTER WIDGETS ------------------------------------------------------------*/
+
+if (function_exists('register_sidebar')) {
+    register_sidebar(array(
+        'name' => 'Footer Left',
+        'id'   => 'footer-left-widget',
+        'description'   => 'Left Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+
+    register_sidebar(array(
+        'name' => 'Footer Center',
+        'id'   => 'footer-center-widget',
+        'description'   => 'Centre Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+
+    register_sidebar(array(
+        'name' => 'Footer Right',
+        'id'   => 'footer-right-widget',
+        'description'   => 'Right Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+
+
+}
+
+
 
 /**
  * Enqueue scripts and styles.

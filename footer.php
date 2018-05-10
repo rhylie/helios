@@ -18,7 +18,10 @@
 
 					<!-- Tweets -->
 						<section class="4u 12u(mobile)">
-							<header>
+
+							<?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('footer-left-widget') ) ?>
+<!-- 							<header>
+<!-- 							<header>
 								<h2 class="icon fa-twitter circled"><span class="label">Tweets</span></h2>
 							</header>
 							<ul class="divided">
@@ -46,12 +49,13 @@
 										<span class="timestamp">5 hours ago</span>
 									</article>
 								</li>
-							</ul>
+							</ul> -->
 						</section>
 
 					<!-- Posts -->
 						<section class="4u 12u(mobile)">
-							<header>
+							<?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('footer-center-widget') ) ?>
+<!-- 							<header>
 								<h2 class="icon fa-file circled"><span class="label">Posts</span></h2>
 							</header>
 							<ul class="divided">
@@ -63,36 +67,15 @@
 										<span class="timestamp">3 hours ago</span>
 									</article>
 								</li>
-								<li>
-									<article class="post stub">
-										<header>
-											<h3><a href="#">Phasellus portitor lorem</a></h3>
-										</header>
-										<span class="timestamp">6 hours ago</span>
-									</article>
-								</li>
-								<li>
-									<article class="post stub">
-										<header>
-											<h3><a href="#">Magna tempus consequat</a></h3>
-										</header>
-										<span class="timestamp">Yesterday</span>
-									</article>
-								</li>
-								<li>
-									<article class="post stub">
-										<header>
-											<h3><a href="#">Feugiat lorem ipsum</a></h3>
-										</header>
-										<span class="timestamp">2 days ago</span>
-									</article>
-								</li>
-							</ul>
+								
+							</ul> -->
 						</section>
 
 					<!-- Photos -->
 						<section class="4u 12u(mobile)">
-							<header>
+
+							<?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('footer-right-widget') ) ?>
+<!-- 							<header>
 								<h2 class="icon fa-camera circled"><span class="label">Photos</span></h2>
 							</header>
 							<div class="row 25%">
@@ -114,7 +97,8 @@
 								<div class="6u$">
 									<a href="#" class="image fit"><img src="images/pic15.jpg" alt="" /></a>
 								</div>
-							</div>
+							</div> -->
+
 						</section>
 
 				</div>
